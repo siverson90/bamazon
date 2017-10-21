@@ -14,32 +14,32 @@ CREATE TABLE products (
 );
 
 INSERT INTO products (product_name, department_name, price,stock_quantity)
-VALUES ("Blue Bottle Coffee","Coffee", 10.99, 10);
+VALUES ("Frisbee","Sports", 10.99, 10);
 
 INSERT INTO products (product_name, department_name, price,stock_quantity)
-VALUES ("Equator Coffee","Coffee", 11.50, 15);
+VALUES ("Hand Coffee Grinder","Home Goods", 11.50, 15);
 
 INSERT INTO products (product_name, department_name, price,stock_quantity)
-VALUES ("","",,);
+VALUES ("Toothpaste","Personal Care", 5.50 ,15);
 
 INSERT INTO products (product_name, department_name, price,stock_quantity)
-VALUES ("","",,);
+VALUES ("Joggers","Clothing", 20.99,11);
 
 INSERT INTO products (product_name, department_name, price,stock_quantity)
-VALUES ("","",,);
+VALUES ("Sweatshirt","Clothing", 12.99, 4);
 
 INSERT INTO products (product_name, department_name, price,stock_quantity)
-VALUES ("","",,);
+VALUES ("Mouthwash","Personal Care", 4.99 ,20);
 
 INSERT INTO products (product_name, department_name, price,stock_quantity)
-VALUES ("","",,);
+VALUES ("Blanken","Home Goods", 9.99, 16);
 
 INSERT INTO products (product_name, department_name, price,stock_quantity)
-VALUES ("","",,);
+VALUES ("Jump Rope","Sports", 14.99, 3);
 
 INSERT INTO products (product_name, department_name, price,stock_quantity)
-VALUES ("","",,);
+VALUES ("Beans","Grocery", 1.99 ,12 );
 
 INSERT INTO products (product_name, department_name, price,stock_quantity)
-VALUES ("","",,);
+VALUES ("Lettuce","Grocery", 3.99 , 20);
 
