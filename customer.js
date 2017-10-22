@@ -1,6 +1,7 @@
 var inquirer = require("inquirer");
 var mysql = require("mysql");
 var Table = require('cli-table');
+var clc = require('cli-color');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -35,7 +36,10 @@ function displayTable(obj) {
       newArray.push(newItemArray);
       table.push(newArray[i]);
     }; 
-  console.log(table.toString());
+    var showTable = table.toString();
+
+    // var msg = clc.xterm(163).bgXterm(253);
+  console.log(showTable);
   userOptions(obj);
 }
 
@@ -67,7 +71,7 @@ function userOptions(obj){
         else {
           console.log("Great we can fill your order");
           var updateProduct = dataResponse[0].stock_quantity - userResponse.stock_quantity;
-          var query = ("UPDATE products SET ? WHERE ?")
+          var query = ("UPDATE products SET ? WHERE ?");
           connection.query(query,
             [
               {
@@ -80,7 +84,8 @@ function userOptions(obj){
             function(err,results){
               if (err) throw err;
               console.log('changed ' + results.changedRows + ' rows');
-              renderTable();
+              var customerTotal = dataResponse[0].price * userResponse.stock_quantity;
+              console.log("Your total will be $" + customerTotal);
           });
 
         }

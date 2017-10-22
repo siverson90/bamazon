@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/siverson90/bamazon#readme",
   "dependencies": {
+    "cli-color": "^1.2.0",
     "cli-table": "^0.3.1",
+    "colors": "^1.1.2",
     "inquirer": "^3.3.0",
     "mysql": "^2.15.0"
   }
