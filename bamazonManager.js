@@ -42,7 +42,7 @@ function renderManagerQs(){
           break;
         case 'Add to Inventory':
           console.log("the user wants to" + response.managerDisplay);
-          // run query that shows item and allows to add
+          addInventory();
           break;
         case 'Add New Product':
           console.log("the user wants to" + response.managerDisplay);
@@ -87,7 +87,67 @@ function getLowInventory() {
   connection.query(query, function(err,res){
     if (err) throw err;
     renderTable(res);
-  })
+  });
 }
 
- 
+function addInventory() {
+  var object ="";
+
+  connection.query("SELECT * FROM products", function(err,res) {
+    if (err) throw err;
+    object = res;
+
+    var promptArray = [];
+    for (var i = 0; i < object.length; i++) {
+      promptArray.push(object[i].product_name);
+    }
+
+  inquirer.prompt([
+    {
+      type: "list",
+      message: "What product would you like to add inventory to?",
+      name: "listOfItems",
+      choices: promptArray
+    },
+      {
+        type: "input",
+        message: "How much inventory would you like to add?",
+        name: "addToInventory"
+      }
+    ]).then(function(response){
+      
+      console.log(response);
+      console.log(response.listOfItems);
+
+      var product = response.listOfItems;
+      var query= ("SELECT stock_quantity FROM products WHERE ?");
+      var currentItemAmount= "";
+      var managerUpdateAmount = response.addToInventory;
+      var updateAmount="";
+
+      connection.query(query,{product_name: response.listOfItems}, function(err,res) {
+        if (err) throw err;
+        currentItemAmount = res[0].stock_quantity;
+      console.log("manger to update by  " + managerUpdateAmount)
+      console.log("current amount " + currentItemAmount)
+      updateAmount = parseInt(managerUpdateAmount) + parseInt(currentItemAmount);
+      
+      var query = ('UPDATE products SET ? WHERE ? ')
+      connection.query(query,
+        [
+        {
+          stock_quantity: updateAmount
+        },
+        {
+          product_name: response.listOfItems
+        }
+        ]
+        ,function(err,result){
+          if (err) throw err;
+          console.log('changed ' + result.changedRows + ' rows');
+          tableSqlData();
+        });
+      });
+    });
+  });
+ }
