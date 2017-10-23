@@ -85,6 +85,7 @@ function userOptions(obj){
               if (err) throw err;
               console.log('changed ' + results.changedRows + ' rows');
               var customerTotal = dataResponse[0].price * userResponse.stock_quantity;
+              // Need to round and only show 2 decimal places
               console.log("Your total will be $" + customerTotal);
           });
 

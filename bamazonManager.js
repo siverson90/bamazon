@@ -25,7 +25,7 @@ function renderManagerQs(){
       "View Products for Sale",
       "View Low Inventory",
       "Add to Inventory",
-      "Add New Product"
+      "Add New Product",
     ]
   },
   ]).then(function(response){
@@ -34,7 +34,7 @@ function renderManagerQs(){
       switch (response.managerDisplay) {
         case 'View Products for Sale':
           console.log("the user wants to" + response.managerDisplay);
-          tableSqlData();
+          viewProducts();
           break;
         case 'View Low Inventory':
           console.log("the user wants to" + response.managerDisplay);
@@ -54,6 +54,10 @@ function renderManagerQs(){
   });
 }
 
+function viewProducts() {
+  tableSqlData();
+}
+
  function tableSqlData () {
   connection.query("SELECT * FROM products", function(err,res){
     if (err) throw err;
@@ -63,7 +67,7 @@ function renderManagerQs(){
 
  function renderTable(obj) {
   this.table = new Table({
-    head: ['item_id', 'product_name', 'department_name', 'price','stock_quantity' ]
+    head: ['item_id', 'product_name', 'department_name', 'price','stock_quantity']
     , colWidths: [10, 20, 20, 10, 17]
     });
   var newArray=[];
@@ -83,6 +87,7 @@ function renderManagerQs(){
 
     // var msg = clc.xterm(163).bgXterm(253);
     console.log(showTable);
+    goAgain();
   }
 
 function getLowInventory() {
@@ -91,6 +96,7 @@ function getLowInventory() {
   connection.query(query, function(err,res){
     if (err) throw err;
     renderTable(res);
+    renderManagerQs();
   });
 }
 
@@ -149,7 +155,7 @@ function addInventory() {
         ,function(err,result){
           if (err) throw err;
           console.log('changed ' + result.changedRows + ' rows');
-          tableSqlData();
+          renderManagerQs();
         });
       });
     });
@@ -202,7 +208,20 @@ function addNewItem() {
         ],function(err,response) {
         if (err) throw err;
         console.log(response.affectedRows + " product inserted!\n");
+        renderManagerQs();
       });
     });
   });
+}
+
+function goAgain () {
+  inquirer.prompt([
+  {
+    type: "confirm",
+    message: "Would you like to do something agin?",
+    name: "confirm"
+  }
+  ]).then(function(response){
+
+  })
 }
