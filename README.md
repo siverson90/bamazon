@@ -1,23 +1,23 @@
-#Bamazon
+# Bamazon
 
 This node.js will allow user to interact with a database, by seeing the current inventory. If user is a manager they will be able to add inventory, see low inventory and add new products
 
-##Getting Started
+## Getting Started
 
 Program is run on Node.js. Pleas down the JSON.package which will
 contain the relavant packages.
 
-##Prerequisites
+## Prerequisites
 
 Customer View- run customer.js in node
-*You will be able to render table to terminal and buy selected items
+* You will be able to render table to terminal and buy selected items
 
 Manager View- run bamazonManager.js in node
-*You will be able to view inventory, view only low invetory (below 5 count)
+* You will be able to view inventory, view only low invetory (below 5 count)
 , add inventory and add new products to existing departments.
 
 
-###Built With
+### Built With
 
 * Node.js
 * NPM
