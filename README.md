@@ -29,9 +29,8 @@ Manager View- run bamazonManager.js in node
 5.mysql
 
 Media:
-Customer_View- Buy Product
-Inline-style: 
-![alt text](https://media.giphy.com/media/3ohhwBRmZNzHtjICB2/giphy.gif "Customer_View- Buy Product")
+
+[![Customer_View- Buy Product](https://media.giphy.com/media/3ohhwBRmZNzHtjICB2/giphy.gif)](https://media.giphy.com/media/3ohhwBRmZNzHtjICB2/giphy.gif)
 
 Customer_View- Insufficent Quantity
 ![alt text](https://media.giphy.com/media/3ohhwBRmZNzHtjICB2/giphy.gif "Customer_View- Insufficent Quantity")
