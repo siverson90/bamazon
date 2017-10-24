@@ -29,23 +29,23 @@ function renderManagerQs(){
     ]
   },
   ]).then(function(response){
-    console.log(response);
+    // console.log(response);
       
       switch (response.managerDisplay) {
         case 'View Products for Sale':
-          console.log("the user wants to" + response.managerDisplay);
-          viewProducts();
+          // console.log("the user wants to" + response.managerDisplay);
+          viewProducts(true);
           break;
         case 'View Low Inventory':
-          console.log("the user wants to" + response.managerDisplay);
+          // console.log("the user wants to" + response.managerDisplay);
           getLowInventory();
           break;
         case 'Add to Inventory':
-          console.log("the user wants to" + response.managerDisplay);
+          // console.log("the user wants to" + response.managerDisplay);
           addInventory();
           break;
         case 'Add New Product':
-          console.log("the user wants to" + response.managerDisplay);
+          // console.log("the user wants to" + response.managerDisplay);
           addNewItem();
           break;
         default:
@@ -54,8 +54,11 @@ function renderManagerQs(){
   });
 }
 
-function viewProducts() {
+function viewProducts(flag) {
   tableSqlData();
+  if(flag){
+    runPrompt();
+  }
 }
 
  function tableSqlData () {
@@ -86,8 +89,8 @@ function viewProducts() {
     var showTable = table.toString();
 
     // var msg = clc.xterm(163).bgXterm(253);
+    console.log("\n");
     console.log(showTable);
-    goAgain();
   }
 
 function getLowInventory() {
@@ -95,8 +98,9 @@ function getLowInventory() {
   var query = ("SELECT * FROM products WHERE stock_quantity < 5");
   connection.query(query, function(err,res){
     if (err) throw err;
-    renderTable(res);
-    renderManagerQs();
+    console.log("\n");
+    renderTable(res); 
+    runPrompt();
   });
 }
 
@@ -126,8 +130,8 @@ function addInventory() {
       }
     ]).then(function(response){
       
-      console.log(response);
-      console.log(response.listOfItems);
+      // console.log(response);
+      // console.log(response.listOfItems);
 
       var product = response.listOfItems;
       var query= ("SELECT stock_quantity FROM products WHERE ?");
@@ -155,7 +159,7 @@ function addInventory() {
         ,function(err,result){
           if (err) throw err;
           console.log('changed ' + result.changedRows + ' rows');
-          renderManagerQs();
+          runPrompt();
         });
       });
     });
@@ -171,7 +175,7 @@ function addNewItem() {
     for (var i = 0; i < res.length; i++) {
       promptArray.push(res[i].department_name);
     }
-    console.log(promptArray);
+    // console.log(promptArray);
 
     inquirer.prompt([
     {
@@ -208,20 +212,25 @@ function addNewItem() {
         ],function(err,response) {
         if (err) throw err;
         console.log(response.affectedRows + " product inserted!\n");
-        renderManagerQs();
+        runPrompt();
       });
     });
   });
 }
 
-function goAgain () {
+function runPrompt() {
   inquirer.prompt([
   {
-    type: "confirm",
-    message: "Would you like to do something agin?",
-    name: "confirm"
+    type: 'confirm',
+    message: 'Would you like to do something else?\n',
+    name: 'confirm'
   }
   ]).then(function(response){
-
-  })
+    if(response.confirm === true){
+      renderManagerQs();
+    }
+    else{
+      console.log("Have a great day! See you next time");
+    }
+  });
 }

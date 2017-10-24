@@ -43,9 +43,6 @@ function displayTable(obj) {
   userOptions(obj);
 }
 
-
-
-
 function userOptions(obj){
 
   inquirer.prompt([
@@ -66,7 +63,7 @@ function userOptions(obj){
 
         if(userResponse.stock_quantity > dataResponse[0].stock_quantity) {
           console.log("Insufficent Quantity");
-          renderTable();
+          runPrompt();
         }
         else {
           console.log("Great we can fill your order");
@@ -83,14 +80,32 @@ function userOptions(obj){
             ], 
             function(err,results){
               if (err) throw err;
-              console.log('changed ' + results.changedRows + ' rows');
+              // console.log('changed ' + results.changedRows + ' rows');
               var customerTotal = dataResponse[0].price * userResponse.stock_quantity;
               // Need to round and only show 2 decimal places
               console.log("Your total will be $" + customerTotal);
+              runPrompt();
           });
 
         }
       });
+  });
+}
+
+function runPrompt() {
+  inquirer.prompt([
+  {
+    type: 'confirm',
+    message: 'Would you like to purchase something else?',
+    name: 'confirm'
+  }
+  ]).then(function(response){
+    if(response.confirm === true){
+      renderTable();
+    }
+    else{
+      console.log("Have a great day! See you next time");
+    }
   });
 }
 
