@@ -31,24 +31,24 @@ Manager View- run bamazonManager.js in node
 Media:
 
 Customer_View- Buy Product
-[![Customer_View- Buy Product]
-(https://media.giphy.com/media/3ohhwBRmZNzHtjICB2/giphy.gif)](https://media.giphy.com/media/3ohhwBRmZNzHtjICB2/giphy.gif)
+
+[![Customer_View- Buy Product](https://media.giphy.com/media/3ohhwBRmZNzHtjICB2/giphy.gif)](https://media.giphy.com/media/3ohhwBRmZNzHtjICB2/giphy.gif)
 
 Customer_View- Insufficent Quantity
-[![Customer_View- Insufficent Quantity]
-(https://media.giphy.com/media/l378u7gD6iVhFjWsU/giphy.gif)](https://media.giphy.com/media/l378u7gD6iVhFjWsU/giphy.gif)
+
+[![Customer_View- Insufficent Quantity](https://media.giphy.com/media/l378u7gD6iVhFjWsU/giphy.gif)](https://media.giphy.com/media/l378u7gD6iVhFjWsU/giphy.gif)
 
 Manager_View- View inventory and view Low Inventory
-[![Manager_View- View inventory and view Low Inventory]
-(https://media.giphy.com/media/l1J9wsNUFVoFe8mM8/giphy.gif)](https://media.giphy.com/media/l1J9wsNUFVoFe8mM8/giphy.gif)
+
+[![Manager_View- View inventory and view Low Inventory](https://media.giphy.com/media/l1J9wsNUFVoFe8mM8/giphy.gif)](https://media.giphy.com/media/l1J9wsNUFVoFe8mM8/giphy.gif)
 
 Manager_view- add inventory
-[![Manager_view- add inventory]
-(https://media.giphy.com/media/3o7aCTo5c5dRlM1WFi/giphy.gif)](https://media.giphy.com/media/3o7aCTo5c5dRlM1WFi/giphy.gif)
+
+[![Manager_view- add inventory](https://media.giphy.com/media/3o7aCTo5c5dRlM1WFi/giphy.gif)](https://media.giphy.com/media/3o7aCTo5c5dRlM1WFi/giphy.gif)
 
 Manager_view- add new product
-[![Manager_view- add new product]
-(https://media.giphy.com/media/xT9Igxru58KlnQlZkY/giphy.gif)](https://media.giphy.com/media/xT9Igxru58KlnQlZkY/giphy.gif)
+
+[![Manager_view- add new product](https://media.giphy.com/media/xT9Igxru58KlnQlZkY/giphy.gif)](https://media.giphy.com/media/xT9Igxru58KlnQlZkY/giphy.gif)
 
 
 Authors
